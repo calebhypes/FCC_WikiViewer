@@ -1,3 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
 
+header {
+  display: flex;
+  justify-content: center; }
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  main section.searchUI {
+    display: flex;
+    flex-wrap: wrap;
+    width: 35%;
+    justify-content: center; }
+    main section.searchUI input {
+      flex-basis: 100%; }
+    main section.searchUI button {
+      align-self: center;
+      width: 100px;
+      height: 30px; }
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  background-color: dodgerblue; }
+  footer p {
+    text-align: center;
+    margin-top: 10px; }
 
 /*# sourceMappingURL=main.css.map */
