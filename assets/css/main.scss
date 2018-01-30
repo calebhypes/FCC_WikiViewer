@@ -10,6 +10,9 @@ header {
 }
 
 main {
+    position: absolute;
+    width: 100%;
+    top: calc(50% - 75px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,12 +23,19 @@ main {
         width: 35%;
         justify-content: center;
         input {
-            flex-basis: 100%
+            flex-basis: 100%;
+            margin-bottom: 10px;
+            height: 25px;
+            padding: 15.5px 5px 15.5px 5px;
+            font-size: 12px;
+            outline: none;
         }
         button {
             align-self: center;
+            margin: 0 10px;
             width: 100px;
             height: 30px;
+            outline: none;
         }
     }
 }
@@ -35,9 +45,12 @@ footer {
     bottom: 0;
     height: 40px;
     width: 100%;
-    background-color: dodgerblue;
+    background-color: grey;
     p {
         text-align: center;
         margin-top: 10px;
+        a {
+            text-decoration: none;
+        }
     }
 }

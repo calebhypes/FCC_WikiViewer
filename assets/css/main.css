@@ -8,6 +8,9 @@ header {
   justify-content: center; }
 
 main {
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 75px);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,20 +21,29 @@ main {
     width: 35%;
     justify-content: center; }
     main section.searchUI input {
-      flex-basis: 100%; }
+      flex-basis: 100%;
+      margin-bottom: 10px;
+      height: 25px;
+      padding: 15.5px 5px 15.5px 5px;
+      font-size: 12px;
+      outline: none; }
     main section.searchUI button {
       align-self: center;
+      margin: 0 10px;
       width: 100px;
-      height: 30px; }
+      height: 30px;
+      outline: none; }
 
 footer {
   position: absolute;
   bottom: 0;
   height: 40px;
   width: 100%;
-  background-color: dodgerblue; }
+  background-color: grey; }
   footer p {
     text-align: center;
     margin-top: 10px; }
+    footer p a {
+      text-decoration: none; }
 
 /*# sourceMappingURL=main.css.map */
