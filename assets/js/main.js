@@ -32,7 +32,7 @@ function parseJSON(res) {
 
 function updatePage(data) {
     for (let i = 0; i < data[1].length; i++) {
-        results.innerHTML = "<div class='container'><a href='"+ data[3][i] +"'><h3 class='title'>" + data[1][i] + "</h3></a><p class='description'>" + data[2][i] + "</p></div>";
+        results.innerHTML += "<div class='container'><a href='"+ data[3][i] +"'><h3 class='title'>" + data[1][i] + "</h3></a><p class='description'>" + data[2][i] + "</p></div>";
     }
 }
 
