@@ -4,6 +4,6 @@ This is a Wiki Viewer for freeCodeCamp's Front-End Certification projects. I dec
 You can view the freeCodeCamp project details [here](https://www.freecodecamp.org/challenges/build-a-wikipedia-viewer).
 
 #### Requirements
-- [ ] - I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.
-- [ ] - I can click a button to see a random Wikipedia entry.
+- [x] - I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.
+- [x] - I can click a button to see a random Wikipedia entry.
 

@@ -3,18 +3,28 @@ const randBtn = document.querySelector("#random");
 const searchField = document.querySelector(".searchField");
 const results = document.querySelector(".results");
 
+
+// If Search Button is clicked, search for items based on user input.
 searchBtn.addEventListener("click", () => {
-    console.log('clicked');
     let query = searchField.value;
     let url = "https://en.wikipedia.org/w/api.php?&origin=*&action=opensearch&search=" + query + "&format=json";
-    console.log('URL: ' + url);
+    // Check if results is empty, if not, reset form to avoid appending different search results onto eachother.
+    if (results.innerHTML != '') {
+        results.innerHTML = '';
+    }
     fetch(url)
     .then(handleErrors)
     .then(parseJSON)
     .then(updatePage)
     .catch(printError)
-    // log results
 })
+// if Enter is pressed, submit search.
+window.onkeypress = (event) => {
+    if (event.keyCode == 13) {
+        searchBtn.click();
+    };
+};
+
 
 function handleErrors(res) {
     if (!res.ok) {
@@ -39,3 +49,4 @@ function updatePage(data) {
 function printError(error) {
     console.log(error);
 }
+
