@@ -87,6 +87,11 @@ main {
     margin: 10px;
     -ms-flex-item-align: center;
     align-self: center; }
+    .results .container .title {
+      text-decoration: none; }
+    .results .container .hyperlink {
+      font-size: 14px;
+      color: #006621; }
 
 footer {
   position: relative;

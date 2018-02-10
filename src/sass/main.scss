@@ -58,6 +58,13 @@ main {
         padding: 15px;
         margin: 10px;
         align-self: center;
+        .title {
+            text-decoration: none;
+        }
+        .hyperlink {
+            font-size: 14px;
+            color: #006621;
+        }
     }
 }
 
