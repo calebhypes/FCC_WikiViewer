@@ -7,3 +7,11 @@ You can view the freeCodeCamp project details [here](https://www.freecodecamp.or
 - [x] - I can search Wikipedia entries in a search box and see the resulting Wikipedia entries.
 - [x] - I can click a button to see a random Wikipedia entry.
 
+#### Additions
+
+I added the below for additional functionality and practice with Vanilla JS. Keep in mind this is all implemented on the client side so it can render properly within Codepen.io so it may not perform as well as it could if the search results were handled server side.
+
+1. Increased results to 100, allowing for pagination to be added.
+2. Added pagination with a limit of 10 items per page for a total of 10 pages per result.
+
+More to add later!

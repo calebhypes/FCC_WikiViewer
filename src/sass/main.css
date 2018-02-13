@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather:400,900");
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +13,8 @@ body {
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  min-height: 100vh; }
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif; }
 
 header {
   display: -webkit-box;
@@ -21,7 +23,21 @@ header {
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-bottom: 25px; }
+  margin: 10px 0 20px 0; }
+  header h1 {
+    font-family: 'Merriweather', serif;
+    color: #1e90ff;
+    z-index: 1;
+    letter-spacing: 2px; }
+    header h1 span {
+      color: #000; }
+  header .logo {
+    position: relative;
+    top: 200px;
+    font-family: Merriweather,serif;
+    font-weight: 900;
+    font-size: 70px;
+    letter-spacing: 5px; }
 
 main {
   position: relative;
@@ -60,6 +76,9 @@ main {
       height: 25px;
       padding: 15.5px 5px 15.5px 5px;
       font-size: 12px;
+      border: 1px solid #ccc;
+      -webkit-box-shadow: 0px 2px 3px 0px rgba(194, 194, 194, 0.68);
+      box-shadow: 0px 2px 3px 0px rgba(194, 194, 194, 0.68);
       outline: none; }
     main section.searchUI button {
       -ms-flex-item-align: center;
@@ -87,19 +106,44 @@ main {
     margin: 10px;
     -ms-flex-item-align: center;
     align-self: center; }
-    .results .container .title {
+    .results .container a {
       text-decoration: none; }
     .results .container .hyperlink {
       font-size: 14px;
       color: #006621; }
+    .results .container .description {
+      font-size: small;
+      color: #545454; }
+
+.pagination {
+  display: none;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  width: 20%;
+  margin-bottom: 25px; }
+  .pagination .btn {
+    width: 100px;
+    height: 30px;
+    margin: 0 10px;
+    outline: none; }
 
 footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+  -ms-flex-pack: space-evenly;
+  justify-content: space-evenly;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   position: relative;
   height: 40px;
   width: 100%;
-  background-color: grey; }
-  footer p {
-    text-align: center;
-    margin-top: 10px; }
-    footer p a {
-      text-decoration: none; }
+  background-color: #ccc; }
+  footer p a {
+    text-decoration: none; }
