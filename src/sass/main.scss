@@ -166,6 +166,7 @@ main {
     .results {
         .container {
             width: 400px;
+            margin: 0;
         }
     }
 }
@@ -192,11 +193,12 @@ footer {
     position: relative;
     height: 40px;
     width: 100%;
-    background-color: #ccc;;
+    background-color: #1e90ff;
+    color: #ddd;
     p {
         a {
             text-decoration: none;
-            color: #555;
+            color: #fff;
         }
         a:hover {
             text-decoration: underline;

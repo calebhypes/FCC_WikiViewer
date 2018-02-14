@@ -167,7 +167,8 @@ main {
 
 @media (max-width: 580px) {
   .results .container {
-    width: 400px; } }
+    width: 400px;
+    margin: 0; } }
 
 .pagination {
   display: none;
@@ -199,10 +200,11 @@ footer {
   position: relative;
   height: 40px;
   width: 100%;
-  background-color: #ccc; }
+  background-color: #1e90ff;
+  color: #ddd; }
   footer p a {
     text-decoration: none;
-    color: #555; }
+    color: #fff; }
   footer p a:hover {
     text-decoration: underline; }
 
