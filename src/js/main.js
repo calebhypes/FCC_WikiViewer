@@ -1,15 +1,16 @@
-const searchBtn     = document.querySelector("#search");
-const randBtn       = document.querySelector("#random");
-const searchField   = document.querySelector(".searchField");
-const results       = document.querySelector(".results");
-const pageCtrl      = document.querySelector(".pagination")
-const pageCount     = document.querySelector(".pageCount");
-const backBtn       = document.querySelector('.back');
-const nextBtn       = document.querySelector('.next');
-const logo          = document.querySelector('h1');
-let currentPage     = 1;
-const resPerPage    = 10;
-let dataObj         = [];
+const searchBtn     = document.querySelector('#search'),
+      randBtn       = document.querySelector('#random'),
+      searchField   = document.querySelector('.searchField'),
+      results       = document.querySelector('.results'),
+      pageCtrl      = document.querySelector('.pagination'),
+      pageCount     = document.querySelector('.pageCount'),
+      backBtn       = document.querySelector('.back'),
+      nextBtn       = document.querySelector('.next'),
+      logo          = document.querySelector('h1'),
+      resPerPage    = 10;
+
+let currentPage     = 1,
+    dataObj         = [];
 
 
 // If Back paginate button is clicked, get previous page.
@@ -93,7 +94,7 @@ function prevPage() {
 // get next page
 function nextPage() {
     // if current page is less than 10, then add 1 to current page count and get that page. Also, ensure the browser window is back at the top of the page for the new results.
-    if (currentPage < 10) {
+    if (currentPage < getPageCount()) {
         currentPage++;
         turnPage(currentPage);
         window.scrollTo(0,0);
@@ -107,8 +108,8 @@ function turnPage(page) {
         page = 1;
     }
     // if page is greater than 10, force page to 10.
-    if (page > 10) {
-        page = 10;
+    if (page > getPageCount()) {
+        page = getPageCount();
     }
 
     // ensure that results aren't appended to other page data by clearing the results div.
@@ -129,13 +130,14 @@ function turnPage(page) {
     }
 
     // if page is 10, ensure the next button is disabled, otherwise enable the next button.
-    if (page == 10) {
+    if (page == getPageCount()) {
         nextBtn.disabled = true;
     } else {
         nextBtn.disabled = false;
     }
 }
 
+// gathers the page count based on the number of items returned.
 function getPageCount() {
     return Math.ceil(dataObj.length / resPerPage);
 }
