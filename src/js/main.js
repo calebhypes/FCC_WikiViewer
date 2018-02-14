@@ -119,7 +119,7 @@ function turnPage(page) {
         results.innerHTML += "<div class='container'><a href='"+ dataObj[i].link +"'><h3 class='title'>" + dataObj[i].title + "</h3></a><p class='hyperlink'>" + dataObj[i].link  + "</p><p class='description'>" + dataObj[i].description + "</p></div>"
     }
     // update the page count within the pagination controls
-    pageCount.innerText = "Page " + page + " of 10";
+    pageCount.innerText = "Page " + page + " of " + getPageCount();
 
     // if page is 1, ensure the back button is disabled, otherwise enable the back button.
     if (page == 1) {
@@ -134,4 +134,8 @@ function turnPage(page) {
     } else {
         nextBtn.disabled = false;
     }
+}
+
+function getPageCount() {
+    return Math.ceil(dataObj.length / resPerPage);
 }

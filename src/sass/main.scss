@@ -1,18 +1,22 @@
 @import url('https://fonts.googleapis.com/css?family=Merriweather:400,900');
 
+// Reset
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+// Global Styles
 body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 button {
+    background-color: #fff;
     border-radius: 5px;
     border: 1px solid #ddd;
     transition: all .2s;
@@ -32,30 +36,61 @@ button:disabled {
     transform: none;
     transition: none;
     box-shadow: none;
+    cursor: not-allowed;
 }
+
+// Section Styles
 
 header {
     display: flex;
     justify-content: center;
     margin: 10px 0 20px 0;
-    a {
-        text-decoration: none;
-        h1 {
-            font-family: 'Merriweather', serif;
-            color: #1e90ff;
-            z-index: 1;
-            letter-spacing: 2px;
-            span {
-                color: #000;
-            }
+    h1 {
+        font-family: 'Merriweather', serif;
+        color: #1e90ff;
+        z-index: 1;
+        letter-spacing: 2px;
+        span {
+            color: #000;
         }
+        a {
+            text-decoration: none; 
+            color: #1e90ff;
+        }
+    }
+    .logo {
+        position: relative;
+        top: 200px;
+        font-family: Merriweather,serif;
+        font-weight: 900;
+        font-size: 70px;
+        letter-spacing: 5px;
+        transition: all .5s;
+    }
+}
+
+// height media queries for logo on load.
+@media (max-height: 620px) {
+    header {
         .logo {
-            position: relative;
-            top: 200px;
-            font-family: Merriweather,serif;
-            font-weight: 900;
-            font-size: 70px;
-            letter-spacing: 5px;
+            top: 100px;
+        }
+    }
+}
+
+@media (max-height: 420px) {
+    header {
+        .logo {
+            top: 0;
+        }
+    }
+}
+
+// width media queries for logo
+@media (max-width: 420px) {
+    header {
+        .logo {
+            font-size: 50px;
         }
     }
 }
@@ -73,6 +108,7 @@ main {
         display: flex;
         flex-wrap: wrap;
         width: 35%;
+        min-width: 300px;
         justify-content: center;
         input {
             flex-basis: 100%;
@@ -100,7 +136,7 @@ main {
     justify-content: center;
     margin: 20px 0;
     .container {
-        width: 60%;
+        width: 840px;
         padding: 15px;
         margin: 10px;
         align-self: center;
@@ -118,11 +154,28 @@ main {
     }
 }
 
+@media (max-width: 850px) {
+    .results {
+        .container {
+            width: 600px;
+        }
+    }
+}
+
+@media (max-width: 580px) {
+    .results {
+        .container {
+            width: 400px;
+        }
+    }
+}
+
 .pagination {
     display: none;
     justify-content: space-evenly;
     align-items: center;
     width: 30%;
+    min-width: 340px;
     margin-bottom: 25px;
     .btn {
         width: 100px;
@@ -148,5 +201,11 @@ footer {
         a:hover {
             text-decoration: underline;
         }
+    }
+}
+
+@media (max-width: 550px) {
+    footer {
+        flex-direction: column;
     }
 }

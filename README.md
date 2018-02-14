@@ -18,4 +18,4 @@ I added the below for additional functionality and practice with Vanilla JS. Kee
 
 #### To Do
 
-- [ ] - Responsive Design - Currently this implementation is not responsive for mobile screen sizes.
+- [x] - Responsive Design - Currently this implementation is not responsive for mobile screen sizes.
