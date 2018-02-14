@@ -1,20 +1,21 @@
-const searchBtn = document.querySelector("#search");
-const randBtn = document.querySelector("#random");
-const searchField = document.querySelector(".searchField");
-const results = document.querySelector(".results");
-const pageCtrl  = document.querySelector(".pagination")
-const pageCount = document.querySelector(".pageCount");
-const backBtn = document.querySelector('.back');
-const nextBtn = document.querySelector('.next');
-const logo = document.querySelector('h1');
-let currentPage = 1;
-const resPerPage = 10;
-let dataObj = [];
+const searchBtn     = document.querySelector("#search");
+const randBtn       = document.querySelector("#random");
+const searchField   = document.querySelector(".searchField");
+const results       = document.querySelector(".results");
+const pageCtrl      = document.querySelector(".pagination")
+const pageCount     = document.querySelector(".pageCount");
+const backBtn       = document.querySelector('.back');
+const nextBtn       = document.querySelector('.next');
+const logo          = document.querySelector('h1');
+let currentPage     = 1;
+const resPerPage    = 10;
+let dataObj         = [];
 
 
-
+// If Back paginate button is clicked, get previous page.
 backBtn.addEventListener("click", prevPage);
 
+// If Next paginate button is clicked, get next page.
 nextBtn.addEventListener("click", nextPage);
 
 // If Search Button is clicked, search for items based on user input.
@@ -27,6 +28,7 @@ searchBtn.addEventListener("click", () => {
         results.innerHTML = '';
         dataObj = [];
     }
+    // AJAX call to wikipedia API
     fetch(url)
     .then(handleErrors)
     .then(parseJSON)
@@ -41,6 +43,7 @@ window.onkeypress = (event) => {
     };
 };
 
+// if response is not OK, throw error status.
 function handleErrors(res) {
     if (!res.ok) {
         console.log(res);
@@ -49,17 +52,12 @@ function handleErrors(res) {
     return res;
 }
 
+// Parse response data as JSON
 function parseJSON(res) {
     return res.json().then((parsedData) => {
         return parsedData;
     });
 };
-
-// function updatePage(data) {
-//     for (let i = 0; i < data[1].length; i++) {
-//         results.innerHTML += "<div class='container'><a href='"+ data[3][i] +"'><h3 class='title'>" + data[1][i] + "</h3></a><p class='hyperlink'>" + data[3][i] + "</p><p class='description'>" + data[2][i] + "</p></div>";
-//     }
-// }
 
 // This function gathers all results and organizes it within a JSON object.
 function gatherResults(data) {
@@ -70,60 +68,67 @@ function gatherResults(data) {
             "description": data[2][i]
         });
     }
-    console.log(dataObj);
+    // unhide the pagination controls and ensure page is set to 1.
     pageCtrl.style.display = "flex";
     turnPage(1);
 }
 
+// if error, log error to console.
 function printError(error) {
     console.log(error);
 }
 
 // Pagination setup
+
+// get previous page
 function prevPage() {
+    // if current page is greater than one, then remove 1 from current page count and get that page. Also, ensure the browser window is back at the top of the page for the new results.
     if (currentPage > 1) {
-        console.log("Current Page: " + currentPage);
         currentPage--;
-        console.log("New Page: " + currentPage);
-        turnPage(currentPage, "back");
+        turnPage(currentPage);
         window.scrollTo(0,0);
     }
 }
 
+// get next page
 function nextPage() {
+    // if current page is less than 10, then add 1 to current page count and get that page. Also, ensure the browser window is back at the top of the page for the new results.
     if (currentPage < 10) {
-        console.log("Current Page: " + currentPage);
         currentPage++;
-        console.log("New Page: " + currentPage);
-        turnPage(currentPage, "next");
+        turnPage(currentPage);
         window.scrollTo(0,0);
     }
 }
 
-function turnPage(page, func) {
-    console.log("Turn to page: " + page + "as requested by " + func)
+// get selected page data
+function turnPage(page) {
+    // if page is less than one, force page to 1.
     if (page < 1) {
         page = 1;
     }
+    // if page is greater than 10, force page to 10.
     if (page > 10) {
         page = 10;
     }
 
+    // ensure that results aren't appended to other page data by clearing the results div.
     results.innerHTML = "";
 
+    // iterate through the data based on current page and items per page. Display the proper items based on current page.
     for (let i = (page - 1) * resPerPage; i < (page * resPerPage) && i < dataObj.length; i++) {
         results.innerHTML += "<div class='container'><a href='"+ dataObj[i].link +"'><h3 class='title'>" + dataObj[i].title + "</h3></a><p class='hyperlink'>" + dataObj[i].link  + "</p><p class='description'>" + dataObj[i].description + "</p></div>"
     }
-
+    // update the page count within the pagination controls
     pageCount.innerText = "Page " + page + " of 10";
 
+    // if page is 1, ensure the back button is disabled, otherwise enable the back button.
     if (page == 1) {
-        // back is hidden
         backBtn.disabled = true;
     } else {
         backBtn.disabled = false;
     }
 
+    // if page is 10, ensure the next button is disabled, otherwise enable the next button.
     if (page == 10) {
         nextBtn.disabled = true;
     } else {
